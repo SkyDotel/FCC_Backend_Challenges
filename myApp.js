@@ -3,10 +3,11 @@
 var express = require('express');
 var app = express();
 
-app.get('/:word/echo',
+app.get('/name',
     function(req, res){
-        const {word} = req.params;
-        res.json({"echo": word});
+        var firstname = req.query.first;
+        var lastname = req.query.last;
+        res.json({"name": `${firstname} ${lastname}` });
     }
 );
 
