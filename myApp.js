@@ -3,12 +3,10 @@
 var express = require('express');
 var app = express();
 
-app.get('/now', function(req,res,next){
-    req.time = new Date().toString();
-    next();
-},
+app.get('/:word/echo',
     function(req, res){
-        res.send({"time": req.time});
+        const {word} = req.params;
+        res.json({"echo": word});
     }
 );
 
